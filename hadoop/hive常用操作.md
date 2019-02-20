@@ -57,4 +57,3 @@ insert overwrite directory 'tmp/tianle.li/test'
 row format delimited fields terminated by "\t"
 select * from tmp_tow_tuple where t='material_department' limit 10;
 ```
-##### 
