@@ -1,3 +1,7 @@
+##### get_json_object与json_tuple小结
+```
+json_tuple相对与get_json_object的区别就是一次可以解析多个json字段
+```
 ##### 查询json key
 ```
 select get_json_object(line,'$.userInfo.osVersion'),get_json_object(line,'$.click.isActive')
@@ -10,10 +14,6 @@ limit 100;
 select json_tuple(line,'$.userInfo.osVersion','$.click.isActive')
 from tmp_ads_feature_click
 limit 100;
-```
-##### get_json_object与json_tuple小结
-```
-json_tuple相对与get_json_object的区别就是一次可以解析多个json字段
 ```
 
 ##### 查询json 数组第几次
