@@ -20,7 +20,7 @@ unix_timestamp(‘2009-03-20 12:23:31’, ‘yyyy-MM-dd HH:mm:ss’’)=12375324
 ```
 ##### 字符串转Date
 ```
-select from_unixtime(unix_timestamp('201801', 'yyyymm'),'yyyy-mm-dd');
+select to_date(from_unixtime(unix_timestamp('201801', 'yyyymm'),'yyyy-mm-dd'));
 ```
 ##### 判断字符串时间str为周几(时间格式为yyyy-MM-dd)
 ```
