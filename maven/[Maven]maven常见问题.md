@@ -37,8 +37,8 @@
     java.lang.NoSuchMethodError: org.apache.hadoop.hive.ql.exec.vector.VectorizedRowBatch.getDataColumnCount()I
     ````
     > 运行平台出现 **java.lang.NoSuchMethodError** 异常,但本地运行没问题,异常根源是依赖冲突,这是考虑两个方面
-    - 打包时依赖冲突 (解决方案参考依赖包冲突问题)
-    - 执行包与运行平台的依赖冲突
+    > - 打包时依赖冲突 (解决方案参考依赖包冲突问题)
+    > - 执行包与运行平台的依赖冲突
 
 - 冲突解决:
     > 打包时将冲突的依赖重命名,在执行时避免调用平台的依赖而冲突
