@@ -1,6 +1,6 @@
-#### Maven常见问题
+### Maven常见问题
 
-##### 依赖包冲突问题
+#### 依赖包冲突问题
 
 - 冲突定位：
     - 方式1:使用mvn dependency:tree 
@@ -29,14 +29,14 @@
     </dependency>
     ````
 
-##### 执行包与运行平台依赖冲突问题
+#### 执行包与运行平台依赖冲突问题
 
 - 冲突描述:
     > 例如spark程序在本地调试一切正常，打包后交程序提交到yarn(spark on yarn)上运行出现以下异常
     ````
     java.lang.NoSuchMethodError: org.apache.hadoop.hive.ql.exec.vector.VectorizedRowBatch.getDataColumnCount()I
     ````
-    > 运行平台出现 **java.lang.NoSuchMethodError** 异常,但本地运行没问题,异常根源是依赖冲突,这是考虑两个方面
+    > 运行平台出现 **java.lang.NoSuchMethodError** 异常,但本地运行没问题,异常根源是依赖冲突,这时考虑两个方面
     > - 打包时依赖冲突 (解决方案参考依赖包冲突问题)
     > - 执行包与运行平台的依赖冲突
 
@@ -64,7 +64,7 @@
             </relocations>
     
             <shadedArtifactAttached>true</shadedArtifactAttached>
-            <shadedClassifierName>jar-with-dependencies</shadedClassifierName>  <!-- 包后缀名 -->
+            <shadedClassifierName>jar-with-dependencies</shadedClassifierName>
         </configuration>
     </plugin>
     ````
