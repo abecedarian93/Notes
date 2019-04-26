@@ -2,7 +2,7 @@
 
 ##### Maven依赖冲突问题
 
-![maven-show-dependencies](image/test.jpg)
+![maven-show-dependencies](images/maven-show-dependencies.jpg)
 
 - 冲突定位：
     - 方式1:使用mvn dependency:tree 查看依赖树
