@@ -59,11 +59,11 @@ export HADOOP_CONF_DIR=XXX
 ---|---|---
 num-executors|申请executor数量,如果不设置,driver向yarn集群申请的executor默认为2个,spark作业运行会超级慢|每个作业申请50～200个左右都较为合理,结合业务的实际情况,太少资源利用不充分,太多可能无法给予满足,占用资源太多也会导致其他作业等待
 executor-memory|每个executor的内存大小,如果JVM OOM异常,直接原因是内存不足,内存大小基本直接决定了作业的性能|每个executor内存申请4G~10G都可以,默认1G在多数情况是不够的.需要注意的是yarn会对每个队列最大内存作限制,num-executors*executor-memory不能超过该限制,队列是公用的,建议不要超过最大内存限制1/2
-
-
-
-
-
+executor-cores|每个executor的cpu core数量,决定executor并行执行task线程的能力,该值越大,越能快速执行完分配的task任务|每个executor核数建议2～4个,yarn会对每个队列最大的cpu core数量做限制,建议不要超过最大核数限制1/2
+driver-memory|driver端的内存大小|默认1G在大多数情况不需要调整的,如果需要将数据拉取到driver端时,需要增加该值,避免出现OOM内存溢出.collect算子,广播变量较大时(map-join很多时候把小表当作广播变量)等操作会将RDD拉取到driver端
+spark.default.parallelism|每个stage的默认task数量,很主要很初学者懵逼的参数,很多情况下默认值会降低作业性能|该值的默认值是分块的个数(HDFS的block数量),默认值较少导致设置的executor cpu资源闲置(task只有10,cpu100个core,90%的core浪费掉了),建议该值为num-executors * executor-cores(cpu总core数)的2~3倍
+spark.storage.memoryFraction|rdd持久化数据在executor内存的占比,默认为0.6|作业中如果较少的持久化操作,60%的executor内存显得不那么合理,可酌情降低该比例,反之较多持久化时,需要增大该比例
+spark.shuffle.memoryFraction|shuffle过程task拉取上个stage的输出后,进行聚合操作用到的executor内存占比,默认为0.2,使用的内存超出会发生溢写,产生的IO降低性能|作业中如果较多的shuffle,较少的持久化操作,可增大该值,降低spark.storage.memoryFraction(持久化内存占比)值,当然如果作业频繁gc运行缓慢,除增加executor的内存,也需要考虑降低持久化内存占比和该值(shuffle内存占比)
 
 
 ###### 相关知识点:
