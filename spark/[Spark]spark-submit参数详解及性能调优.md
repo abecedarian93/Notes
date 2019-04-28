@@ -71,5 +71,5 @@ spark.shuffle.memoryFraction|shuffle过程task拉取上个stage的输出后,进�
 
 ###### 相关资料链接:
 
-> https://www.cnblogs.com/camilla/p/8301750.html
-> https://spark.apache.org/docs/latest/running-on-yarn.html
+- https://www.cnblogs.com/camilla/p/8301750.html
+- https://spark.apache.org/docs/latest/running-on-yarn.html
