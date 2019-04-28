@@ -70,5 +70,6 @@ spark.shuffle.memoryFraction|shuffle过程task拉取上个stage的输出后,进�
 > maven坐标：groupId:artifactId:version 确定资源唯一
 
 ###### 相关资料链接:
+
 > https://www.cnblogs.com/camilla/p/8301750.html
 > https://spark.apache.org/docs/latest/running-on-yarn.html
