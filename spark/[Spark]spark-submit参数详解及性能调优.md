@@ -1,4 +1,4 @@
-### Spark-submit参数详解及性能调优
+### Spark-submit参数详解及参数调优
 
 #### 1.spark-submit参数详解
 ###### 可以通过spark-submit --help来查看这些参数
@@ -51,7 +51,18 @@ export HADOOP_CONF_DIR=XXX
 --keytab|在yarn模式下包含keytab文件的全路径|-|-
 
 
-#### 2.spark-on-yarn 性能优化
+#### 2.spark-on-yarn 参数调优
+> 通过调节各种参数,优化spark-on-yarn使用各个资源的效率,提升执行效率
+> 参数调优
+
+参数|参数说明|调优建议
+---|---|---
+num-executors|申请executor数量,如果不设置,driver向yarn集群申请的executor默认为2个,spark作业运行会超级慢|每个作业申请50～200个左右都较为合理,结合业务的实际情况,太少资源利用不充分,太多可能无法给予满足,占用资源太多也会导致其他作业等待
+executor-memory|每个executor的内存大小,如果JVM OOM异常,直接原因是内存不足,内存大小基本直接决定了作业的性能|每个executor内存申请4G~10G都可以,默认1G在多数情况是不够的.需要注意的是yarn会对每个队列最大内存作限制,num-executors*executor-memory不能超过该限制,队列是公用的,建议不要超过最大内存限制1/2
+
+
+
+
 
 
 
