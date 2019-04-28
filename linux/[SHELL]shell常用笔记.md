@@ -17,11 +17,6 @@ date=${day:6:(8-6)}
 before_day=`date +'%Y%m%d' -d "$day 1 day ago"`
 ```
 
-##### awk去重
-```
-awk '!a[$0]++' fileName
-```
-
 ##### 按指定时间循环执行脚本
 ```
 ##开始时间默认为昨天
@@ -79,6 +74,12 @@ sudo chown tianle.li tianle.li/
 sudo chgrp qunarengineer tianle.li/  
 
 ```
+
+##### awk去重
+```
+awk '!a[$0]++' fileName
+```
+
 
 ##### sed /n替换为,
 ```
