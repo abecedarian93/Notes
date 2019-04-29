@@ -264,3 +264,10 @@ override def start(args: Array[String], conf: SparkConf): Unit = {
     mainMethod.invoke(null, args) //通过反射mainMethod.invoke执行该方法 com.abecedarian.demo.spark.SparkHelloWord #main()
   }
 ````
+
+> SparkContext 源码分析
+
+> SparkContext被初始化时:
+````
+
+````
