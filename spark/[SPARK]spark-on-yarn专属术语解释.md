@@ -34,14 +34,18 @@ Task|executor上的任务执行单元,rdd的partition决定task数,task处理一
 
 > spark类相关概念
 
-术语|解释
+类名|解释
 ---|---
 org.apache.spark.SparkException|spark异常处理类
-org.apache.spark.SparkContext|spark功能的主入口,是一个容器,里面装各种各样的资源,用来代表与spark-cluster的连接,可在cluster上创建RDDs, 累加器(accumulators)和广播变量(broadcast variables),目前一个jvm只能存在一个sc(SparkContext),只有干掉(stop()函数)当前sc,才能创建新的.未来的版本可能对该限制修改,详情见SPARK-2243
-
+org.apache.spark.SparkContext|spark功能的主入口,是一个容器,里面装各种各样的资源,用来代表与spark-cluster的连接,可在cluster上创建RDDs, 累加器(accumulators)和广播变量(broadcast variables),目前一个jvm只能存在一个sc(SparkContext),只有干掉(stop()函数)当前sc,才能创建新的.未来的版本可能对该限制修改,详情见[SPARK-2243](https://issues.apache.org/jira/browse/SPARK-2243)
+org.apache.spark.SparkConf|spark application的配置类,用键值对(key-value)设置参数
+org.apache.spark.SparkEnv|spark的执行环境对象,其中包括序列化(serializer),组件通信的执行环境(RpcEnv),blockManager管理协调(block manager),跟踪map任务输出状态(map output tracker)等,存在于driver或者coarseGrainedExecutorBackend进程中
+org.apache.spark.SparkFiles|解析 `SparkContext.addFile()`添加文件路径
+org.apache.spark.SparkStatusTracker|监控job和stage的低层次(low-level)状态的api
 
 ###### 相关资料链接:
 - https://www.jianshu.com/p/014cb82f462a
 - https://www.cnblogs.com/chushiyaoyue/p/7093695.html
 - https://spark.apache.org/docs/latest/running-on-yarn.html
 - https://github.com/apache/spark
+- https://www.cnblogs.com/xia520pi/p/8609625.html
